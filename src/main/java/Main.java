@@ -5,8 +5,5 @@ public class Main {
   public static void main(String [] args) {
     Logger logger = LoggerFactory.getLogger(Main.class);
     logger.info("Hi, I'm logger! Nice to meet you!");
-    Tree tree = new Tree();
-//    tree.treeInitialization(10);
-    tree.treeTrain(10);
   }
 }
