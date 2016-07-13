@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Train {
 
-  Logger logger = LoggerFactory.getLogger(Tree.class);
+  private Logger logger = LoggerFactory.getLogger(Tree.class);
 
   public void treeTrain(int numUsers) {
     SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> trainGraph =
@@ -14,7 +14,7 @@ public class Train {
     ArrayList<Integer> list = new ArrayList<Integer>();
     for (int counter = 0; counter < numUsers; counter++) {
       Random rdn = new Random();
-      list.add(counter, rdn.nextInt(85));
+      list.add(counter, rdn.nextInt(99));
       trainGraph.addVertex(counter);
       logger.info("Vertex - " + counter + " added! Ping - " + list.get(counter));
     }

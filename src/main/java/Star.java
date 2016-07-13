@@ -5,15 +5,14 @@ import java.util.*;
 
 public class Star {
 
-  Logger logger = LoggerFactory.getLogger(Tree.class);
+  private Logger logger = LoggerFactory.getLogger(Tree.class);
+  private int edgeCounter = 3;
+  private ArrayList<Integer> list = new ArrayList<Integer>();
+  private ArrayList<Integer> lowList = new ArrayList<Integer>();
+  private ArrayList<Integer> mediumList = new ArrayList<Integer>();
+  private ArrayList<Integer> highList = new ArrayList<Integer>();
 
-  public void starTree(int numUsers) {
-
-    int edgeCounter = 3;
-    ArrayList<Integer> list = new ArrayList<Integer>();
-    ArrayList<Integer> lowList = new ArrayList<Integer>();
-    ArrayList<Integer> mediumList = new ArrayList<Integer>();
-    ArrayList<Integer> highList = new ArrayList<Integer>();
+  void starTree(int numUsers) {
 
     SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> starGraph =
         new SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge>
@@ -23,6 +22,22 @@ public class Star {
       list.add(counter, rdn.nextInt(99));
       starGraph.addVertex(counter);
       logger.info("Vertex - " + counter + " added! Ping - " + list.get(counter));
+    }
+
+    for (Integer aList : list) {
+      int currentEdge = aList;
+      if (currentEdge <= 33) {
+        lowList.add(currentEdge);
+        logger.info("Value sorted in the lowList - " + currentEdge);
+      }
+      if (currentEdge > 33 && currentEdge < 66) {
+        mediumList.add(currentEdge);
+        logger.info("Value sorted in the mediumList - " + currentEdge);
+      }
+      if (currentEdge >= 66) {
+        highList.add(currentEdge);
+        logger.info("Value sorted in the highList - " + currentEdge);
+      }
     }
 
     for (int counter = 0; counter < numUsers - 1; counter++) {
